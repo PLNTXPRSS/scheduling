@@ -1,0 +1,8 @@
+scheduling
+
+included just as a proof of concept:
+
+	- FIFO
+	- SJF
+	- Round Robin
+	- Priority
