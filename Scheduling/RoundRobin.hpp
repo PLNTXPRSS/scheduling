@@ -2,15 +2,17 @@
 #include <cstdio>
 #include "Node.cpp"
 
-class SortList{
+class RoundRobin{
 
     private:
         Node *start;
         Node *last;
 
     public:
-        SortList();
-        ~SortList();
+        RoundRobin();
+        ~RoundRobin();
+        bool insertquantum(int);
         bool insert(int, int);
-        void FinalOrder();
+        bool insert2(int, int);
+        void FinalOrderR();
 };

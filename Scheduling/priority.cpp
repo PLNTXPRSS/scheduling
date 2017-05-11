@@ -103,7 +103,7 @@ void menu()
     cout<< "\n OPTION: ";
 }
 
-int main()
+namespace priority
 {
     struct queue q;
     
@@ -156,4 +156,4 @@ int main()
     } while (option != 3);
     
     return 0;
-}
+};

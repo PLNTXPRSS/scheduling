@@ -1,22 +1,21 @@
 #include <cstdlib>
 #include <cstdio>
-#include "SortList.hpp"
-using namespace std;
+#include "FIFO.hpp"
 
-SortList::SortList()
+FIFO::FIFO()
 {
 	start = NULL;
 	last = NULL;
 }
 
 //Destructor
-SortList::~SortList()
+FIFO::~FIFO()
 {
 	if(start != NULL) delete start;
 	if(last != NULL) delete last;
 }
 
-bool SortList::insert(int dato, int prioridad)
+bool FIFO::insert(int dato, int prioridad)
 {
 	Node *new_node = new Node(dato, prioridad);
 
@@ -27,40 +26,16 @@ bool SortList::insert(int dato, int prioridad)
 		last = new_node;
 	}
 
-	else
-	{
-		if(dato <= start->dato())
-		{
-			new_node->next(start);
-			start = new_node;
-		}
-		else if(dato >= last->dato())
-		{
-			last->next(new_node);
-			last = new_node;
-		}
-
-		else
-		{
-			Node *aux = start;
-			while(aux->next() != NULL)
-			{
-				if(dato <= aux->next()->dato())
-				{
-					new_node->next(aux->next());
-					aux->next(new_node);
-					return true;
-				}
-
-				aux = aux->next();
-			}
-		}
-	}
-
+    else
+    {
+        last->next(new_node);
+        last = new_node;
+    }
 	return true;
 }
 
-void SortList::FinalOrder()
+
+void FIFO::FinalOrderF()
 {
     int tiempo=0;
     int promedio;
@@ -112,7 +87,8 @@ void SortList::FinalOrder()
             aux = aux->next();
             ++cont;
         }
-    printf("\nTiempo de retorno final: %i\n", tiempo);
+
+	printf("\nTiempo de retorno final: %i\n", tiempo);
 	promedio = tiempo/cont;
 	printf("Tiempo promedio: %i\n", promedio);
 

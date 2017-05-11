@@ -2,15 +2,15 @@
 #include <cstdio>
 #include "Node.cpp"
 
-class SortList{
+class FIFO{
 
     private:
         Node *start;
         Node *last;
 
     public:
-        SortList();
-        ~SortList();
+        FIFO();
+        ~FIFO();
         bool insert(int, int);
-        void FinalOrder();
+        void FinalOrderF();
 };
